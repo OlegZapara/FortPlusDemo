@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+// import { getAnalytics } from "firebase/analytics";
+// import { getFirestore } from "firebase/firestore";
+import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDMkFJWCWShAbwXYKtm8NJTU2gjnPxZ2V4",
@@ -12,4 +14,36 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app);
+// const firestore = getFirestore(app);
+const storage = getStorage(app);
+
+export const getFileFromStorage = async (fileUrl:string) => {
+  try{
+    const storageRef = ref(storage, fileUrl);
+    const url = await getDownloadURL(storageRef);
+    console.log("File url: ", url);
+  } catch (error){
+    console.error("Error downloading file: ", error);
+  }
+}
+
+export const getAllFilesFromStorage = async (folderPath:string) => {
+  const downloadItems:{ name: string; url:string}[] = [];
+  const folderRef = ref(storage, folderPath);
+  try{
+    const result = await listAll(folderRef);
+    const promises = result.items.map(async itemRef => {
+      const name = itemRef.name;
+      const url = await getDownloadURL(itemRef)
+      return {name, url};
+    });
+    await Promise.all(promises).then(items => {
+      downloadItems.push(...items);
+      console.log(downloadItems);
+    });
+  }catch(error){
+    console.log(error)
+  }
+  return downloadItems;
+}

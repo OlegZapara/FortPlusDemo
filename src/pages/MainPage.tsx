@@ -10,6 +10,7 @@ export default function MainPage() {
       <li><Link to='/worker-training'>WorkerTrainingPage</Link></li>
       <li><Link to='/workshop'>WorkshopPage</Link></li>
       <li><Link to='/car-diagnostics'>CarDiagnosticsPage</Link></li>
+      <li><Link to='/resources'>Resources</Link></li>
     </ul>
   )
 }

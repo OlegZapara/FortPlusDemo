@@ -6,6 +6,7 @@ import OccupationalHealthPage from './pages/OccupationalHealthPage'
 import WorkerTrainingPage from './pages/WorkerTrainingPage'
 import WorkshopPage from './pages/WorkshopPage'
 import CarDiagnosticsPage from './pages/CarDiagnosticsPage'
+import ResourcesPage from './pages/ResourcesPage'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='worker-training' element={ <WorkerTrainingPage/> }/>
         <Route path='workshop' element={ <WorkshopPage/> }/>
         <Route path='car-diagnostics' element={ <CarDiagnosticsPage/> }/>
+        <Route path='resources' element={ <ResourcesPage/> }/>
       </Routes>
     </>
   )
