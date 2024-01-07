@@ -1,0 +1,18 @@
+.footer-container{
+  height: 10rem;
+  background-color: grey;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.footer{
+  max-width: 960px;
+  background-color: red;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}

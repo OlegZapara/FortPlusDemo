@@ -1,0 +1,36 @@
+.navbar-container{
+  height: 5rem;
+  background-color: var(--secondary-color);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-size: 16px;
+  border: 1px solid #E3E3E3;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+  padding: 8px;
+}
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding:0 2rem;
+  max-width: 960px;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.logo{
+
+}
+.main-nav{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 32px;
+  color: brown;
+}
+.nav-login{
+
+}

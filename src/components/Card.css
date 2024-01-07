@@ -1,0 +1,31 @@
+.card-container{
+  width: calc(15rem + 5vw);
+  height: calc(10rem + 5vw);
+  background-color: #F5F5F5;
+  border: 1px solid #E3E3E3;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.link{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top:0;
+  left:0;
+  z-index: 2;
+}

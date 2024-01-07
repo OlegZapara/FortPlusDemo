@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 // import { getAnalytics } from "firebase/analytics";
 // import { getFirestore } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
@@ -46,4 +47,39 @@ export const getAllFilesFromStorage = async (folderPath:string) => {
     console.log(error)
   }
   return downloadItems;
+}
+
+
+
+export const auth = getAuth(app);
+export const loginUser = (email:string, password:string) => {
+  signInWithEmailAndPassword(auth, email, password)
+  .then(userCredential => {
+    const user = userCredential.user;
+    console.log('user logged in', user);
+  })
+  .catch(error => {
+    console.log(error);
+  })
+}
+
+export const registerUser = (email:string, password:string) => {
+  createUserWithEmailAndPassword(auth, email, password)
+  .then(userCredentials => {
+    const user = userCredentials.user;
+    console.log('user registered', user);
+  })
+  .catch(error => {
+    console.log(error);
+  })
+}
+
+export const logoutUser = () => {
+  auth.signOut()
+  .then(() => {
+    console.log('user is logged out');
+  })
+  .catch(error => {
+    console.log(error);
+  })
 }

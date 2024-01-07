@@ -1,5 +1,17 @@
+:root{
+  --navbar-height:5rem;
+  --footer-height:10rem;
+  --primary-color:red;
+  --secondary-color:#ecf0f3;
+}
+
 *{
   margin:0;
   padding: 0;
   box-sizing: border-box;
+}
+body{
+  font-family: sans-serif;
+  font-size: 13px;
+  line-height: 1.3;
 }
